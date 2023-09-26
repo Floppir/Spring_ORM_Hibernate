@@ -30,7 +30,7 @@ public class UserDaoImp implements UserDao {
 
     @Override
     public User findUserByCar(Car car) {
-        String hql = "FROM User where car = :car";
+        String hql = "from User e where e.car=:car";
         Query query = sessionFactory.getCurrentSession().createQuery(hql);
         query.setParameter("car", car);
         return (User) query.getSingleResult();
